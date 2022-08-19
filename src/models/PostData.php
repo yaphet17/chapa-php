@@ -12,6 +12,7 @@ class PostData{
     private $firstname;
     private $lastname;
     private $transactionRef;
+	private $callbackUrl;
     private $customizations;
 
 	public function getAmount() {
@@ -54,7 +55,7 @@ class PostData{
 		return $this->lastname;
 	}
 
-	public function lastName($lastname) {
+	public function lastname($lastname) {
 		$this->lastname = $lastname;
         return $this;
 	}
@@ -68,13 +69,44 @@ class PostData{
         return $this;
 	}
 
-	public function getCustomizationTitle() {
-		return $this->customizationTitle;
+	public function getCallbackUrl() {
+		return $this->callbackUrl;
 	}
 
-	public function customizationTitle($customizationTitle) {
-		$this->customizationTitle = $customizationTitle;
+	public function callbackUrl($callbackUrl) {
+		$this->callbackUrl = $callbackUrl;
         return $this;
+	}
+
+	public function getCustomizations() {
+		return $this->customizations;
+	}
+
+	public function customizations($customizations) {
+		$this->customizations = $customizations;
+        return $this;
+	}
+
+	public function getAsKeyValue(){
+		$data = array();
+
+		$data['amount'] = $this->amount;
+		$data['currency'] = $this->currency;
+		$data['email'] = $this->email;
+		$data['first_name'] = $this-> firstname;
+		$data['last_name'] = $this-> firstname;
+		$data['tx_ref'] = $this-> transactionRef;
+
+		if(is_null($this->callbackUrl)){
+			$data['callback_url'] = $this-> callbackUrl;
+		}
+		
+		if(!is_null($this->customizations)){
+			foreach($this->customizations as $key => $value){
+				$data[$key] = $value;
+			}
+		}
+		return $data;
 	}
 
 }
