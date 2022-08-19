@@ -4,6 +4,7 @@ namespace Chapa;
 
 require_once __DIR__."/../vendor/autoload.php";
 
+use Chapa\Models\PostData;
 use Dotenv\Dotenv;
 use GuzzleHttp\Client;
 
@@ -32,6 +33,8 @@ class Chapa
 
     public function initialize($data)
     {
+        $postData = new PostData("firstName", "lastName", "yafetberhanu3@gmail.com", "randomtransaction", null, null);
+        echo json_encode($postData);
         // TODO: validate json data
         $options = [
             'headers' => $this->headers,

@@ -2,6 +2,8 @@
 
 namespace Chapa\Models;
 
+require_once __DIR__."/../../vendor/autoload.php";
+
 class PostData{
 
     private $amount;
@@ -9,40 +11,14 @@ class PostData{
     private $email;
     private $first_name;
     private $last_name;
-    private $transaction_ref;
-    private $customization_title;
-    private $customization_description;
-    private $customization_logo;
-
-
-
-    public function __construct($amount,
-                                $currency, 
-                                $email,
-                                $first_name, 
-                                $last_name, 
-                                $transaction_ref,
-                                $customization_title = null,
-                                $customization_description = null,
-                                $customization_logo = null
-                                )
-    {
-        $this->amount = $amount;
-        $this->currency = $currency;
-        $this->email = $email;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->transaction_ref = $transaction_ref;
-        $this->customization_title = $customization_title;
-        $this->customization_description = $customization_description;
-        $this->customization_logo = $customization_logo;
-    }
+    private $transactionRef;
+    private $customizations;
 
 	public function getAmount() {
 		return $this->amount;
 	}
 
-	public function setAmount($amount) {
+	public function amount($amount) {
 		$this->amount = $amount;
         return $this;
 	}
@@ -51,7 +27,7 @@ class PostData{
 		return $this->currency;
 	}
 
-	public function setCurrency($currency) {
+	public function currency($currency) {
 		$this->currency = $currency;
         return $this;
 	}
@@ -60,7 +36,7 @@ class PostData{
 		return $this->email;
 	}
 
-	public function setEmail($email) {
+	public function email($email) {
 		$this->email = $email;
         return $this;
 	}
@@ -69,53 +45,35 @@ class PostData{
 		return $this->first_name;
 	}
 
-	public function setFirstName($first_name) {
-		$this->first_name = $first_name;
+	public function firstName($firstName) {
+		$this->firstName = $firstName;
         return $this;
 	}
 
     public function getLastName() {
-		return $this->last_name;
+		return $this->lastName;
 	}
 
-	public function setLastName($last_name) {
-		$this->last_name = $last_name;
+	public function lastName($lastName) {
+		$this->lastName = $lastName;
         return $this;
 	}
 
 	public function getTransactionRef() {
-		return $this->transaction_ref;
+		return $this->transactionRef;
 	}
 
-	public function setTransactionRef($transaction_ref) {
-		$this->transaction_ref = $transaction_ref;
+	public function transactionRef($transactionRef) {
+		$this->transactionRef = $transactionRef;
         return $this;
 	}
 
 	public function getCustomizationTitle() {
-		return $this->customization_title;
+		return $this->customizationTitle;
 	}
 
-	public function setCustomizationTitle($customization_title) {
-		$this->customization_title = $customization_title;
-        return $this;
-	}
-
-	public function getCustomizationDescription() {
-		return $this->customization_description;
-	}
-
-	public function setCustomizationDescription($customization_description) {
-		$this->customization_description = $customization_description;
-        return $this;
-	}
-
-	public function getCustomizationLogo() {
-		return $this->customization_logo;
-	}
-
-	public function setCustomizationLogo($customization_logo) {
-		$this->customization_logo = $customization_logo;
+	public function customizationTitle($customizationTitle) {
+		$this->customizationTitle = $customizationTitle;
         return $this;
 	}
 
