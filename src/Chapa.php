@@ -4,9 +4,7 @@ namespace Chapa;
 
 require_once __DIR__."/../vendor/autoload.php";
 
-use Dotenv\Dotenv;
 use GuzzleHttp\Client;
-use Chapa\Models\PostData;
 use Chapa\Models\ResponseData;
 use GuzzleHttp\Psr7\Request;
 
@@ -50,35 +48,4 @@ class Chapa
     }
 }
 
-$dotenv = Dotenv::createImmutable(__DIR__ );
-$dotenv->load();
-$secreteKey = $_ENV['SECRETE_KEY'];
-$chapa = new Chapa($secreteKey);
-$postData = new PostData();
-$postData->amount(100)
-        ->currency('ETB')
-        ->email('yafetberhanu3@gmail.com')
-        ->firstname('yafet')
-        ->lastname('berhanu')
-        ->transactionRef(bin2hex(random_bytes(10)))
-        // ->callbackUrl('https://chapa.co')
-        ->customizations(array(
-            'customization[title]' => 'title',
-            'customization[description]' => 'It is time to pay'
-        )
-    );
 
-echo $chapa->initialize($postData);
-
-/*
-array(
-        'amount' => '100', 
-        'currency' => 'ETB',
-        'email' => 'yafetberhanu3@gmail.com',
-        'first_name' => 'Yafet',
-        'last_name' => 'Berhanu',
-        'tx_ref' => 'tx-this-is-random',
-        'callback_url' => 'https://chapa.co',
-        'customization[title]' => 'I love e-commerce',
-        'customization[description]' => 'It is time to pay'
-    ) */

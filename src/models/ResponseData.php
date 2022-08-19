@@ -12,9 +12,10 @@ class ResponseData{
 
     public function __construct($response)
     {
-        $this->message = $response['message'];
-        $this->message = $response['status'];
-        $this->message = $response['data'];
+        $response = json_decode($response);
+        $this->message = $response->message;
+        $this->success = $response->status;
+        $this->data = $response->data;
     }
 
     public function getMessage(){

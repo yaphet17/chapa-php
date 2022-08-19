@@ -6,6 +6,7 @@
     "autoload": {
         "psr-4": {
             "yaphet17\\Chapa\\": "src/",
+            "Chapa\\": "src/",
             "Chapa\\Models\\": "src/models"
         }
     },
