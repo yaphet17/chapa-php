@@ -9,8 +9,8 @@ class PostData{
     private $amount;
     private $currency;
     private $email;
-    private $first_name;
-    private $last_name;
+    private $firstname;
+    private $lastname;
     private $transactionRef;
     private $customizations;
 
@@ -42,20 +42,20 @@ class PostData{
 	}
 
 	public function getFirstName() {
-		return $this->first_name;
+		return $this->firstname;
 	}
 
-	public function firstName($firstName) {
-		$this->firstName = $firstName;
+	public function firstname($firstname) {
+		$this->firstname = $firstname;
         return $this;
 	}
 
     public function getLastName() {
-		return $this->lastName;
+		return $this->lastname;
 	}
 
-	public function lastName($lastName) {
-		$this->lastName = $lastName;
+	public function lastName($lastname) {
+		$this->lastname = $lastname;
         return $this;
 	}
 
