@@ -2,9 +2,10 @@
 
 namespace Chapa\Models;
 
-require_once __DIR__."/../../vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
-class ResponseData{
+class ResponseData
+{
 
     private $message;
     private $success;
@@ -18,15 +19,18 @@ class ResponseData{
         $this->data = $response->data;
     }
 
-    public function getMessage(){
+    public function getMessage()
+    {
         return $this->message;
     }
 
-    public function getSuccess(){
+    public function getSuccess()
+    {
         return $this->success;
     }
 
-    public function getData(){
+    public function getData()
+    {
         return $this->data;
     }
 }

@@ -2,111 +2,128 @@
 
 namespace Chapa\Models;
 
-require_once __DIR__."/../../vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
-class PostData{
+class PostData
+{
 
-    private $amount;
-    private $currency;
-    private $email;
-    private $firstname;
-    private $lastname;
-    private $transactionRef;
+	private $amount;
+	private $currency;
+	private $email;
+	private $firstname;
+	private $lastname;
+	private $transactionRef;
 	private $callbackUrl;
-    private $customizations;
+	private $customizations;
 
-	public function getAmount() {
+	public function getAmount()
+	{
 		return $this->amount;
 	}
 
-	public function amount($amount) {
+	public function amount($amount)
+	{
 		$this->amount = $amount;
-        return $this;
+		return $this;
 	}
 
-	public function getCurrency() {
+	public function getCurrency()
+	{
 		return $this->currency;
 	}
 
-	public function currency($currency) {
+	public function currency($currency)
+	{
 		$this->currency = $currency;
-        return $this;
+		return $this;
 	}
 
-	public function getEmail() {
+	public function getEmail()
+	{
 		return $this->email;
 	}
 
-	public function email($email) {
+	public function email($email)
+	{
 		$this->email = $email;
-        return $this;
+		return $this;
 	}
 
-	public function getFirstName() {
+	public function getFirstName()
+	{
 		return $this->firstname;
 	}
 
-	public function firstname($firstname) {
+	public function firstname($firstname)
+	{
 		$this->firstname = $firstname;
-        return $this;
+		return $this;
 	}
 
-    public function getLastName() {
+	public function getLastName()
+	{
 		return $this->lastname;
 	}
 
-	public function lastname($lastname) {
+	public function lastname($lastname)
+	{
 		$this->lastname = $lastname;
-        return $this;
+		return $this;
 	}
 
-	public function getTransactionRef() {
+	public function getTransactionRef()
+	{
 		return $this->transactionRef;
 	}
 
-	public function transactionRef($transactionRef) {
+	public function transactionRef($transactionRef)
+	{
 		$this->transactionRef = $transactionRef;
-        return $this;
+		return $this;
 	}
 
-	public function getCallbackUrl() {
+	public function getCallbackUrl()
+	{
 		return $this->callbackUrl;
 	}
 
-	public function callbackUrl($callbackUrl) {
+	public function callbackUrl($callbackUrl)
+	{
 		$this->callbackUrl = $callbackUrl;
-        return $this;
+		return $this;
 	}
 
-	public function getCustomizations() {
+	public function getCustomizations()
+	{
 		return $this->customizations;
 	}
 
-	public function customizations($customizations) {
+	public function customizations($customizations)
+	{
 		$this->customizations = $customizations;
-        return $this;
+		return $this;
 	}
 
-	public function getAsKeyValue(){
+	public function getAsKeyValue()
+	{
 		$data = array();
 
 		$data['amount'] = $this->amount;
 		$data['currency'] = $this->currency;
 		$data['email'] = $this->email;
-		$data['first_name'] = $this-> firstname;
-		$data['last_name'] = $this-> firstname;
-		$data['tx_ref'] = $this-> transactionRef;
+		$data['first_name'] = $this->firstname;
+		$data['last_name'] = $this->firstname;
+		$data['tx_ref'] = $this->transactionRef;
 
-		if(is_null($this->callbackUrl)){
-			$data['callback_url'] = $this-> callbackUrl;
+		if (is_null($this->callbackUrl)) {
+			$data['callback_url'] = $this->callbackUrl;
 		}
-		
-		if(!is_null($this->customizations)){
-			foreach($this->customizations as $key => $value){
+
+		if (!is_null($this->customizations)) {
+			foreach ($this->customizations as $key => $value) {
 				$data[$key] = $value;
 			}
 		}
 		return $data;
 	}
-
 }

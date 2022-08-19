@@ -2,7 +2,7 @@
 
 namespace Chapa;
 
-require_once __DIR__."/../vendor/autoload.php";
+require_once __DIR__ . "/../vendor/autoload.php";
 
 use Exception;
 use GuzzleHttp\Client;
@@ -47,19 +47,16 @@ class Chapa
     public function isPaymentVerified($transactionRef)
     {
         $request = new Request('GET', self::apiVersion . '/transaction/verify/' . $transactionRef);
-        
-        try{
+
+        try {
             $response = $this->client->send($request, [
                 'headers' => $this->headers,
             ]);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             echo $e->getMessage();
             return false;
         }
 
         return $response->getStatusCode() == 200;
-
     }
 }
-
-
