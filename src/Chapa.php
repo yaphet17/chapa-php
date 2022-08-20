@@ -5,6 +5,7 @@ namespace Chapa;
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use Exception;
+use Chapa\Util;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Chapa\Models\ResponseData;
@@ -34,7 +35,8 @@ class Chapa
 
     public function initialize($postData)
     {
-        // TODO: validate json data
+        Util::validate($postData);
+        
         $request = new Request('POST', self::apiVersion . '/transaction/initialize');
         $response = $this->client->send($request, [
             'headers' => $this->headers,
