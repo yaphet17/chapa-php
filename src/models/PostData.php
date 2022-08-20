@@ -115,7 +115,7 @@ class PostData
 		$data['last_name'] = $this->firstname;
 		$data['tx_ref'] = $this->transactionRef;
 
-		if (is_null($this->callbackUrl)) {
+		if (!is_null($this->callbackUrl)) {
 			$data['callback_url'] = $this->callbackUrl;
 		}
 
