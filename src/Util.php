@@ -27,8 +27,8 @@ class Util
             throw new InvalidPostDataException('Invalid currency value. Currency should match the following regex: ^([A-Z]{3})$');
         }
 
-        if(!preg_match("/^([A-ZÀ-ÿa-z][-,a-z'])*$/",  $postData->getFirstName()) || !preg_match("/^([A-ZÀ-ÿa-z][-,a-z. '])*$/",  $postData->getLastName())){
-            throw new InvalidPostDataException('Invalid name format. Name should match the following regex: ' . "^([A-ZÀ-ÿa-z][-,a-z. '])*$" );
+        if(!preg_match("/^[A-ZÀ-ÿa-z-,']*$/",  $postData->getFirstName()) || !preg_match("/^[A-ZÀ-ÿa-z-,']*$/",  $postData->getLastName())){
+            throw new InvalidPostDataException('Invalid name format. Name should match the following regex: ' . "^[A-ZÀ-ÿa-z-,']*$" );
         }
         
         if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $postData->getEmail())){
