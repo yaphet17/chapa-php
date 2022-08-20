@@ -15,8 +15,8 @@ class Util
             throw new InvalidPostDataException('Invalid amount value. Amount must be in numerical format.');
         }
 
-        if(!preg_match('/([A-Z]{3})/', $postData->getCurrency())){
-            throw new InvalidPostDataException('Invalid currency value. Currency should match the following regex: ([A-Z]{3})');
+        if(!preg_match('/^([A-Z]{3})$/', $postData->getCurrency())){
+            throw new InvalidPostDataException('Invalid currency value. Currency should match the following regex: ^([A-Z]{3})$');
         }
 
         $fullname = $postData->getFirstName() . ' ' . $postData->getLastName(); 
