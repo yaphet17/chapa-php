@@ -82,7 +82,7 @@ class UtilTest extends TestCase
         $postData->amount('100')
             ->currency('ETB')
             ->email('testuser@example') // invalid email address
-            ->firstname('test1')
+            ->firstname('test')
             ->lastname('user')
             ->transactionRef("random-string")
             ->callbackUrl('https://testsite.com')
@@ -123,11 +123,11 @@ class UtilTest extends TestCase
         $postData = new PostData();
         $postData->amount('100')
             ->currency('ETB')
-            ->email('testuser@example')
-            ->firstname('test1')
+            ->email('testuser@example.com')
+            ->firstname('test')
             ->lastname('user')
             ->transactionRef("random-string")
-            ->callbackUrl('https://testsite') // invalid callback url
+            ->callbackUrl('https//testsite') // invalid callback url
             ->customizations(
                 array(
                     'customization[title]' => 'title',

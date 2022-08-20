@@ -36,10 +36,11 @@ class Util
         }
 
         $callBackUrl = $postData->getCallbackUrl();
-        if(!is_null($callBackUrl) && !preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $callBackUrl)){
-            throw new InvalidPostDataException("Invalid callback url.");
+        if(!is_null($callBackUrl)) {
+            if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $callBackUrl)) {
+                throw new InvalidPostDataException("Invalid callback url.");
+            }
         }
-        return true;
     }
 
     /**
