@@ -4,7 +4,7 @@ namespace Chapa;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use Chapa\Exceptions\InvalidPostDataException;
+use Chapa\Exception\InvalidPostDataException;
 
 /**
  * The Util class serves as a helper class for the main {@link Chapa} class.

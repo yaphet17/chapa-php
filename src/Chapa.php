@@ -4,7 +4,7 @@ namespace Chapa;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use Chapa\Models\PostData;
+use Chapa\Model\PostData;
 use Exception;
 use Chapa\Util;
 use GuzzleHttp\Client;

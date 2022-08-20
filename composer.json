@@ -5,12 +5,16 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Chapa\\Chapa\\": "src/",
             "Chapa\\": "src/",
-            "Chapa\\Models\\": "src/models",
-            "Chapa\\Exceptions\\": "src/exceptions"
+            "Chapa\\Model\\": "src/models",
+            "Chapa\\Exception\\": "src/exceptions"
         }
     },
+    "autoload-dev": {
+    "psr-4": {
+        "Chapa\\Test\\": "test"
+    }
+},
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {

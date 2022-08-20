@@ -1,6 +1,6 @@
 <?php
 
-namespace Chapa\Exceptions;
+namespace Chapa\Exception;
 
 use RuntimeException;
 

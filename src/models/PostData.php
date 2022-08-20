@@ -1,6 +1,6 @@
 <?php
 
-namespace Chapa\Models;
+namespace Chapa\Model;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 

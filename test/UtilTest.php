@@ -1,12 +1,12 @@
 <?php
 
+namespace Chapa\Test;
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use Chapa\Exceptions\InvalidPostDataException;
-use Chapa\Models\PostData;
+use Chapa\Exception\InvalidPostDataException;
+use Chapa\Model\PostData;
 use Chapa\Util;
 use PHPUnit\Framework\TestCase;
-use function PHPUnit\Framework\stringStartsWith;
 
 class UtilTest extends TestCase
 {
