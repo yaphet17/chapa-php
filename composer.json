@@ -6,7 +6,9 @@
     "autoload": {
         "psr-4": {
             "Chapa\\Chapa\\": "src/",
-            "Chapa\\": "src/"
+            "Chapa\\": "src/",
+            "Chapa\\Models\\": "src/models",
+            "Chapa\\Exceptions\\": "src/exceptions"
         }
     },
     "minimum-stability": "dev",

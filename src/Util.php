@@ -27,9 +27,8 @@ class Util
             throw new InvalidPostDataException('Invalid currency value. Currency should match the following regex: ^([A-Z]{3})$');
         }
 
-        $fullname = $postData->getFirstName() . ' ' . $postData->getLastName(); 
-        if(!preg_match("/\b([A-ZÀ-ÿa-z][-,a-z. ']+[ ]*)/",  $fullname)){
-            throw new InvalidPostDataException('Invalid name format. Name should match the following regex: ' . "\b([A-ZÀ-ÿa-z][-,a-z. ']+[ ]*)" );
+        if(!preg_match("/^([A-ZÀ-ÿa-z][-,a-z'])*$/",  $postData->getFirstName()) || !preg_match("/^([A-ZÀ-ÿa-z][-,a-z. '])*$/",  $postData->getLastName())){
+            throw new InvalidPostDataException('Invalid name format. Name should match the following regex: ' . "^([A-ZÀ-ÿa-z][-,a-z. '])*$" );
         }
         
         if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $postData->getEmail())){
@@ -40,6 +39,7 @@ class Util
         if(!is_null($callBackUrl) && !preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $callBackUrl)){
             throw new InvalidPostDataException("Invalid callback url.");
         }
+        return true;
     }
 
     /**
