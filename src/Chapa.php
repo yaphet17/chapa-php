@@ -6,10 +6,9 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use Chapa\Model\PostData;
 use Exception;
-use Chapa\Util;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use Chapa\Models\ResponseData;
+use Chapa\Model\ResponseData;
 
 /**
  * The Chapa class is responsible for making GET and POST request to Chapa API
