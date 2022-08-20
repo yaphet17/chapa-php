@@ -1,13 +1,12 @@
 {
-    "name": "yaphet17/chapa",
+    "name": "chapa/chapa",
     "description": "PHP SDK for Chapa payment gateway",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "yaphet17\\Chapa\\": "src/",
-            "Chapa\\": "src/",
-            "Chapa\\Models\\": "src/models"
+            "Chapa\\Chapa\\": "src/",
+            "Chapa\\": "src/"
         }
     },
     "minimum-stability": "dev",
@@ -15,5 +14,8 @@
     "require": {
         "guzzlehttp/guzzle": "^7.0",
         "vlucas/phpdotenv": "^5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }

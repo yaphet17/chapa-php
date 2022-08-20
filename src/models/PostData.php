@@ -4,6 +4,10 @@ namespace Chapa\Models;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
+/**
+ * The PostData class is an object representation of JSON form data
+ * that will be posted to Chapa API.
+ */
 class PostData
 {
 
@@ -104,6 +108,10 @@ class PostData
 		return $this;
 	}
 
+    /**
+     * @return array    An associative array that contains post data
+     *                  as a key-value pair.
+     */
 	public function getAsKeyValue()
 	{
 		$data = array();

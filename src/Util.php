@@ -6,9 +6,17 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use Chapa\Exceptions\InvalidPostDataException;
 
+/**
+ * The Util class serves as a helper class for the main {@link Chapa} class.
+ */
 class Util
 {
 
+    /**
+     *  @param PostData  $postData Instance of PostData class that contains post
+     *                             fields to be validated.
+     * @return void
+     */
     public static function validate($postData)
     {
         if(!preg_match("/^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/", $postData->getAMount())){
@@ -34,6 +42,12 @@ class Util
         }
     }
 
+    /**
+     * @param string    $prefix Prefix for transaction reference token e.g. company initials.
+     * @return string           Generated token which contains $prefix, some random string
+     *                          and a timestamp.
+     * @throws \Exception
+     */
     public static function generateToken($prefix = 'cp')
     {
         return $prefix . '_' . bin2hex(random_bytes(5)) . '_' .  date('d-m-y_h-i-s');
