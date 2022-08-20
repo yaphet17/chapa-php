@@ -32,13 +32,13 @@ class Chapa
     }
 
 
-    public function initialize($data)
+    public function initialize($postData)
     {
         // TODO: validate json data
         $request = new Request('POST', self::apiVersion . '/transaction/initialize');
         $response = $this->client->send($request, [
             'headers' => $this->headers,
-            'form_params' => $data->getAsKeyValue()
+            'form_params' => $postData->getAsKeyValue()
         ]);
         $responseData = new ResponseData($response->getBody());
         return $responseData;
