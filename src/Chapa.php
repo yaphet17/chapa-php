@@ -28,6 +28,7 @@ class Chapa
         $this->client = new Client(['base_uri' => self::baseUrl]);
         $this->headers = [
             'Content-Type' => 'application/x-www-form-urlencoded',
+            'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $this->secreteKey
         ];
     }
@@ -36,7 +37,7 @@ class Chapa
     public function initialize($postData)
     {
         Util::validate($postData);
-        
+
         $request = new Request('POST', self::apiVersion . '/transaction/initialize');
         $response = $this->client->send($request, [
             'headers' => $this->headers,
@@ -49,13 +50,11 @@ class Chapa
     public function isPaymentVerified($transactionRef)
     {
         $request = new Request('GET', self::apiVersion . '/transaction/verify/' . $transactionRef);
-
         try {
             $response = $this->client->send($request, [
                 'headers' => $this->headers,
             ]);
         } catch (Exception $e) {
-            echo $e->getMessage();
             return false;
         }
 
