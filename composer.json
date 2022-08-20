@@ -3,6 +3,12 @@
     "description": "PHP SDK for Chapa payment gateway",
     "type": "library",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Yafet Berhanu",
+            "email": "yafetberhanu3@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Chapa\\": "src/"
