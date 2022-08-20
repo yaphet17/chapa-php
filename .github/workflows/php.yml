@@ -32,8 +32,7 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: PHPUnit Tests
-      uses: php-actions/phpunit@v3
-      with:
-          bootstrap: vendor/autoload.php
+    - name: PHPUnit Test
+      run: vendor/bin/phpunit tests
+
 
