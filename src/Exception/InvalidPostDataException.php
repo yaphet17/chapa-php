@@ -9,6 +9,8 @@ use RuntimeException;
  */
 class InvalidPostDataException extends RuntimeException{
 
+    // TODO: modify and use stackTrace instead of default method
+
     /**
      * @return string
      */

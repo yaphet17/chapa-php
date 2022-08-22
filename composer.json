@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
     "psr-4": {
-        "Chapa\\Tests\\": "tests"
+        "Chapa\\Tests\\": "tests/"
     }
 },
     "minimum-stability": "dev",

@@ -11,6 +11,7 @@ require_once __DIR__ . "/../../vendor/autoload.php";
 class ResponseData
 {
 
+    private $statusCode;
     private $message;
     private $success;
     private $data;
@@ -18,12 +19,18 @@ class ResponseData
     /**
      * @param json  $response JSON data to be mapped to ResponseData object.
      */
-    public function __construct($response)
+    public function __construct($response, $statusCode)
     {
         $response = json_decode($response);
+
+        $this->statusCode = $statusCode;
         $this->message = $response->message;
         $this->success = $response->status;
         $this->data = $response->data;
+    }
+
+    public function getStatusCode(){
+        return $this->statusCode;
     }
 
     public function getMessage()

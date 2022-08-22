@@ -7,8 +7,11 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use Chapa\Model\PostData;
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use Chapa\Model\ResponseData;
+use InvalidArgumentException;
+use RuntimeException;
 
 /**
  * The Chapa class is responsible for making GET and POST request to Chapa API
@@ -50,31 +53,46 @@ class Chapa
         Util::validate($postData);
 
         $request = new Request('POST', self::apiVersion . '/transaction/initialize');
-        $response = $this->client->send($request, [
-            'headers' => $this->headers,
-            'form_params' => $postData->getAsKeyValue()
-        ]);
-        $responseData = new ResponseData($response->getBody());
-        return $responseData;
+        try{
+            $response = $this->client->send($request, [
+                'headers' => $this->headers,
+                'form_params' => $postData->getAsKeyValue()
+            ]);
+        }catch (Exception $e){
+            // rethrow runtime exception for internal server errors
+            if($e->getCode() >= 500){
+                throw new RuntimeException($e->getMessage(), $e);
+            }
+            return new ResponseData($e->getResponse()->getBody(),  $e->getResponse()->getStatusCode());
+        }
+
+        return new ResponseData($response->getBody(), $response->getStatusCode());
     }
 
     /**
      * @param string                                $transactionRef Transaction reference that uniquely identifies
      *                                                              the transaction to be validated.
-     * @return bool                                                 True if transaction is verified otherwise false.
+     * @return ResponseData                                         An object that represents response data from Chapa API.
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function isPaymentVerified($transactionRef)
+    public function verify($transactionRef)
     {
+        if(empty($transactionRef)){
+            throw new InvalidArgumentException("Transaction reference can't be null or empty");
+        }
+
         $request = new Request('GET', self::apiVersion . '/transaction/verify/' . $transactionRef);
-        try {
+        try{
             $response = $this->client->send($request, [
                 'headers' => $this->headers,
             ]);
-        } catch (Exception $e) {
-            return false;
+        }catch(RequestException $e){
+            // rethrow runtime exception for internal server errors
+            if($e->getCode() >= 500){
+                throw new RuntimeException($e->getMessage(), $e);
+            }
+             return new ResponseData($e->getResponse()->getBody(),  $e->getResponse()->getStatusCode());
         }
-
-        return $response->getStatusCode() == 200;
+        return new ResponseData($response->getBody(), $response->getStatusCode());
     }
 }
