@@ -44,6 +44,8 @@ class Chapa
     }
 
     /**
+     * Return {@link ResponseData} object for a valid request.
+     *
      * @param  PostData                              $postData An object that represents post fields.
      * @return ResponseData                                    An object that represents response data from Chapa API.
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -70,10 +72,12 @@ class Chapa
     }
 
     /**
+     * Return {@link ResponseData} object for a valid request.
+     *
      * @param string                                $transactionRef Transaction reference that uniquely identifies
      *                                                              the transaction to be validated.
      * @return ResponseData                                         An object that represents response data from Chapa API.
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException|InvalidArgumentException
      */
     public function verify($transactionRef)
     {
