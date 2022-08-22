@@ -1,31 +1,29 @@
 {
-    "name": "yaphet17/chapa",
-    "description": "PHP SDK for Chapa payment gateway",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Yafet Berhanu",
-            "email": "yafetberhanu3@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Chapa\\": "src/"
-        }
-    },
-    "autoload-dev": {
+  "name": "yaphet17/chapa",
+  "description": "PHP SDK for Chapa payment gateway",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yafet Berhanu",
+      "email": "yafetberhanu3@gmail.com"
+    }
+  ],
+  "autoload": {
     "psr-4": {
-        "Chapa\\Tests\\": "tests/"
+      "Chapa\\": "src/"
     }
-},
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "guzzlehttp/guzzle": "^7.0",
-        "vlucas/phpdotenv": "^5.4"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Chapa\\Tests\\": "tests/"
     }
+  },
+  "prefer-stable": true,
+  "require": {
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
 }
