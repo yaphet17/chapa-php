@@ -13,7 +13,7 @@ class ResponseData
 
     private $statusCode;
     private $message;
-    private $success;
+    private $status;
     private $data;
 
     /**
@@ -25,7 +25,7 @@ class ResponseData
 
         $this->statusCode = $statusCode;
         $this->message = $response->message;
-        $this->success = $response->status;
+        $this->status = $response->status;
         $this->data = $response->data;
     }
 
@@ -38,9 +38,9 @@ class ResponseData
         return $this->message;
     }
 
-    public function getSuccess()
+    public function getStatus()
     {
-        return $this->success;
+        return $this->status;
     }
 
     public function getData()

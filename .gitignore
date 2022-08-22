@@ -2,5 +2,4 @@
 .vscode/
 .idea/
 vendor
-index.php
 .phpunit.result.cache
