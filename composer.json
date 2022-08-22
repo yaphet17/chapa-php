@@ -19,6 +19,7 @@
       "Chapa\\Tests\\": "tests/"
     }
   },
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
     "guzzlehttp/guzzle": "^7.0"
