@@ -61,7 +61,7 @@ class Chapa
                 'form_params' => $postData->getAsKeyValue()
             ]);
         }catch (Exception $e){
-            // rethrow runtime exception for internal server errors
+            //  rethrow runtime exception for internal server errors
             if($e->getCode() >= 500){
                 throw new RuntimeException($e->getMessage(), $e);
             }
@@ -74,9 +74,9 @@ class Chapa
     /**
      * Return {@link ResponseData} object for a valid request.
      *
-     * @param string                                $transactionRef Transaction reference that uniquely identifies
-     *                                                              the transaction to be validated.
-     * @return ResponseData                                         An object that represents response data from Chapa API.
+     * @param string                                                        $transactionRef Transaction reference that uniquely identifies
+     *                                                                                      the transaction to be validated.
+     * @return ResponseData                                                                 An object that represents response data from Chapa API.
      * @throws \GuzzleHttp\Exception\GuzzleException|InvalidArgumentException
      */
     public function verify($transactionRef)
