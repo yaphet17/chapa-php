@@ -1,5 +1,5 @@
 {
-    "name": "chapa/chapa",
+    "name": "yaphet17/chapa",
     "description": "PHP SDK for Chapa payment gateway",
     "type": "library",
     "license": "MIT",
