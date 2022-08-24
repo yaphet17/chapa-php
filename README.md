@@ -5,7 +5,7 @@
 
 Unofficial PHP library for Chapa Payment Gateway.
 
-## Descirption
+## Description
 Integrating Chapa to your app is simple as it is. So what benefit can you get from using this library? well, here are some of the benefits you can get by using 
 this library.
    - Allows you to focus on building your app instead of spending time on making the integration to work.
