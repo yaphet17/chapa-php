@@ -1,7 +1,7 @@
 # Chapa-PHP
 
-[![BUILD](https://github.com/yaphet17/chapa-php/actions/workflows/php.yml/badge.svg)](https://github.com/yaphet17/chapa-php/actions/workflows/php.yml/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
-
+[![BUILD](https://github.com/yaphet17/chapa-php/actions/workflows/php.yml/badge.svg)](https://github.com/yaphet17/chapa-php/actions/workflows/php.yml/)
+[![Latest Stable Version](http://poser.pugx.org/yaphet17/chapa/v)](https://packagist.org/packages/yaphet17/chapa) [![Total Downloads](http://poser.pugx.org/yaphet17/chapa/downloads)](https://packagist.org/packages/yaphet17/chapa) [![Latest Unstable Version](http://poser.pugx.org/yaphet17/chapa/v/unstable)](https://packagist.org/packages/yaphet17/chapa) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PHP Version Require](http://poser.pugx.org/yaphet17/chapa/require/php)](https://packagist.org/packages/yaphet17/chapa)
 Unofficial PHP library for Chapa Payment Gateway.
 
 ## Descirption
