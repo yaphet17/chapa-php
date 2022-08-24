@@ -2,8 +2,6 @@
 
 namespace Chapa\Model;
 
-require_once __DIR__ . "/../../vendor/autoload.php";
-
 /**
  * The PostData class is an object representation of JSON data
  * returned from Chapa API.
@@ -21,6 +19,7 @@ class ResponseData
      */
     public function __construct($response, $statusCode)
     {
+        echo '========================' . $response;
         $response = json_decode($response);
 
         $this->statusCode = $statusCode;

@@ -2,8 +2,6 @@
 
 namespace Chapa\Model;
 
-require_once __DIR__ . "/../../vendor/autoload.php";
-
 /**
  * The PostData class is an object representation of JSON form data
  * that will be posted to Chapa API.

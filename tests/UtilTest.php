@@ -1,7 +1,6 @@
 <?php
 
 namespace Chapa\Tests;
-require_once __DIR__ . "/../vendor/autoload.php";
 
 use Chapa\Exception\InvalidPostDataException;
 use Chapa\Model\PostData;
