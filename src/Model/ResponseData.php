@@ -19,7 +19,6 @@ class ResponseData
      */
     public function __construct($response, $statusCode)
     {
-        echo '========================' . $response;
         $response = json_decode($response);
 
         $this->statusCode = $statusCode;
