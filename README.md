@@ -62,13 +62,17 @@ identify a specific transaction.
 $response2 = $chapa->verify($transactionRef);
 ```
 Both of the above two methods (i.e `initialize` and `verify`) returns an instance of `ReponseData` class. This class will allow you to access the data 
-returned by Chapa API with an OOP approach. It has an exact same structure as the JSON data returned by Chapa API.
+returned by Chapa API with an OOP approach. It has the same structure as the JSON data returned by Chapa API plus status code and a raw JSON data.
 ```php
 $statusCode = $resopnse1->getStatusCode();
 $message = $response1->getMessage();
 $success = $response1->getStatus();
 $data = $response1->getData();
 ```
+For some reason, if you want the raw JSON data you can easily access it using `getRawJSON` method.
+```php
+$json = $response->getRawJson();
+````
 Below is the full implementation of the above steps.
 ```php
 $chapa = new Chapa('{your-secrete-key}');
