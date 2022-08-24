@@ -96,7 +96,7 @@ $response1 = $chapa->initialize($postData);
 print_r($response1->getMessage());
 print_r($response1->getStatus());
 print_r($response1->getData());
-
+echo $response->getRawJson();
 $response2 = $chapa->verify($transactionRef);
 if($response2->getStatusCode() == 200){
     echo 'Payment not verified because ' . $response2->getMessage()['message'];
