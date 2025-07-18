@@ -118,7 +118,7 @@ class PostData
 		$data['currency'] = $this->currency;
 		$data['email'] = $this->email;
 		$data['first_name'] = $this->firstname;
-		$data['last_name'] = $this->firstname;
+		$data['last_name'] = $this->lastname;
 		$data['tx_ref'] = $this->transactionRef;
 
 		if (!is_null($this->callbackUrl)) {
